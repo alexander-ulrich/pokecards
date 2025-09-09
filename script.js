@@ -64,17 +64,6 @@ function addPokeCard(pokeData) {
   pokeTypes[0].textContent = types[0].type.name;
   if (types.length > 1) {
     pokeTypes[1].textContent = types[1].type.name;
-    pokeType2.classList.add(
-      `bg-${allTypes[types[1].type.name]}`,
-      "py-[2px]",
-      "px-[5px]",
-      "mr-[5px]",
-      "rounded",
-      "border-gray-500",
-      "border-[2px]",
-      "text-top",
-      "capitalize"
-    );
   } else {
     pokeTypes[1].textContent = "";
   }
@@ -92,20 +81,41 @@ function addPokeCard(pokeData) {
   //   Style Elements
   pokeType1.classList.add(
     `bg-${allTypes[types[0].type.name]}`,
+    "inline-block",
     "py-[2px]",
     "px-[5px]",
     "mr-[5px]",
     "rounded",
     "border-gray-500",
     "border-[2px]",
-    "text-top",
     "capitalize"
   );
-  nameContainer.classList.add("text-xl");
+  if (types.length > 1) {
+    pokeType2.classList.add(
+      `bg-${allTypes[types[1].type.name]}`,
+      "inline-block",
+      "py-[2px]",
+      "px-[5px]",
+      "mr-[5px]",
+      "rounded",
+      "border-gray-500",
+      "border-[2px]",
+      "capitalize!"
+    );
+  }
+  nameContainer.classList.add("text-lg");
   typeContainer.classList.add("mt-[0.5rem]", "mb-[1rem]");
   pokeName.classList.add("capitalize");
-  pokeImg.classList.add("m-auto", "bg-blue-100", "rounded");
-  pokeCard.classList.add("text-center", "font-bold");
+  pokeImg.classList.add("m-auto", "rounded");
+  pokeCard.classList.add(
+    "text-center",
+    "font-bold",
+    "bg-blue-200",
+    "hover:bg-blue-400",
+    "rounded-lg",
+    "my-4",
+    "py-10"
+  );
 }
 
 fetchPokemon();
